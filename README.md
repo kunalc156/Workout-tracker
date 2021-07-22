@@ -11,6 +11,6 @@ The user should be able to:
 
 ## Images
 ![Screenshot1](public/assets/images/1.png?raw=true "Optional Title")
-![Screenshot2](public/assets/images/1.png?raw=true "Optional Title")
-![Screenshot3](public/assets/images/1.png?raw=true "Optional Title")
-![Screenshot4](public/assets/images/1.png?raw=true "Optional Title")
+![Screenshot2](public/assets/images/2.png?raw=true "Optional Title")
+![Screenshot3](public/assets/images/3.png?raw=true "Optional Title")
+![Screenshot4](public/assets/images/4.png?raw=true "Optional Title")
