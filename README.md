@@ -1,6 +1,6 @@
 # Workout-tracker
 ## Overview
-Part of this project is to create a Workout Tracker using a Mongo database with a Mongoose schema where users are able to track their most recent workout plan, and add new exercises. Users should also be able to track the name, type, weight, sets, reps, and the duration of the exercise. If the exercise is a cardio exercise, users should be able to track the distance traveled.
+To create a Workout Tracker using a Mongo database with a Mongoose schema where users track their most recent workout plan, and add new exercises. 
 
 ## Acceptance Criteria
 The user should be able to:
