@@ -12,29 +12,16 @@ const workoutSchema =  new Schema ({
         type: Schema.Types.ObjectId,
         ref: "Exercise"
     }]
-}, {
-    toJSON:  {virtuals : true}
 });
 
-workoutSchema.virtual('totalDuration').get(function() {
-    var total = 0;
-    if(this.exercises.length > 0 ) {
-         this.exercises.reduce((total, exerciseId) => {
 
-            Exercise.findOne({_id: exerciseId}).then((exercise) => {
-                console.log(exercise);
-                return total + exercise.duration;
-
-            }).catch(err => {
-                console.log(err);
-            })
-            
-
-        }) 
-    } 
-    return total;
-})
 
 const Workout = mongoose.model("Workout", workoutSchema);
-
+Workout.aggregate([
+    {
+      $addFields: {
+        totalDuration: { $sum: "$exercises.duration" } ,
+      }
+    },
+ ])
 module.exports = Workout;

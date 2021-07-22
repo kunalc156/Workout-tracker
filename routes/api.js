@@ -35,18 +35,6 @@ router.put("/api/workouts/:id", async ( req ,res) => {
       res.status(500).json(err);
 
     }
-
-   /*Exercise.create(req.body)
-    .then(({_id }) => { 
-        return Workout.findOneAndUpdate({_id: req.params.id}, { $push: { exercises: _id } }, { new: true },(err, doc) => {
-        if (err) {
-          res.status(500).json(err);
-        }})
-      })
-    .then(workout => {
-    })
-    .catch(err => {
-    }); */
   
 }); 
 
