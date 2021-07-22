@@ -1,7 +1,25 @@
 const router = require("express").Router();
-const {Exercise, Workout} = require("../models");
+const  Workout  = require('../models/workout')
+router.get("/api/workouts", async (req, res) => {
+  try{
+      const workoutData = await Workout.find()
+       res.status(200).json(workoutData)
+  } catch(err){
+      res.status(500).json(err);
+  }
+});
 
-///api/workouts/range
+router.put("/api/workouts/:id", async ({ body, params}, res) => {
+  try{
+      const workoutUpdate = await Workout.findByIdAndUpdate(
+          params.id,
+          { $push: {exercises: body}}
+      )
+       res.status(200).json(workoutUpdate);
+  } catch(err) {
+      res.status(500).json(err);
+  }  
+});
 
 router.post("/api/workouts", async ({ body }, res) => {
   try{
@@ -12,42 +30,13 @@ router.post("/api/workouts", async ({ body }, res) => {
   }  
 });
 
-router.get("/api/workouts", (req, res) => {
-  Workout.find({})
-    .then(workout => {
-      res.json(workout);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
-
-router.put("/api/workouts/:id", async ( req ,res) => {
-    try {
-      const exercise = await Exercise.create(req.body);
-      const workout = await Workout.findOneAndUpdate({_id: req.params.id}, { $push: { exercises: exercise._id } }, { new: true },(err, doc) => {
-        if (err) {
-          res.status(500).json(err);
-        }
-      });
-      res.json(workout);
-    } catch (err) {
-      res.status(500).json(err);
-
-    }
-  
-}); 
-
 router.get("/api/workouts/range", async (req, res) => {
   try{
-      const workoutRange = await Workout.find({}).populate('exercises');
-      console.log(workoutRange);
+      const workoutRange = await Workout.find();
       res.status(200).json(workoutRange);
 
   } catch(err){
-    console.log(err)
       res.status(500).json(err);
   }
 });
-
 module.exports = router; 
