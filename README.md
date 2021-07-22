@@ -10,3 +10,7 @@ The user should be able to:
 - View the total duration of each workout from the past seven workouts on the stats page.
 
 ## Images
+![Alt text](/images/1.png?raw=true "Optional Title")
+![Alt text](/images/2.png?raw=true "Optional Title")
+![Alt text](/images/3.png?raw=true "Optional Title")
+![Alt text](/images/4.png?raw=true "Optional Title")
